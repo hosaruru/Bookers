@@ -1,2 +1,27 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+
+<html>
+  <head>
+    <title>WebCampBackendNew</title>
+    <meta name="csrf-param" content="authenticity_token" />
+    <link rel="stylesheet" href="show.css" />
+
+  </head>
+
+  <body>
+    <p id="notice"></p>
+
+<p>
+  <strong>Title:</strong>
+<p><%= @book.title %></p>
+</p>
+
+<p>
+  <strong>Body:</strong>
+<p><%= @book.body %></p>
+</p>
+
+<a class="edit_77567" href="/books/77567/edit">Edit</a> |
+<a class="back" href="/books">Back</a>
+
+  </body>
+</html>

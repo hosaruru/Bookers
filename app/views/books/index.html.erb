@@ -1,8 +1,8 @@
 <h1>投稿一覧</h1>
 
-<% @books.each do |list| %>
+<%= @books.each do |book| %>
 
   <p>タイトル</p>
-  <span><%= book.title %></span>
-  
+<span><%= book.title %></span>
+<span><%= book.bod %></span>
 <% end %>

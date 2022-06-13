@@ -1,27 +1,22 @@
 
-<html>
-  <head>
-    <title>WebCampBackendNew</title>
-    <meta name="csrf-param" content="authenticity_token" />
-    <link rel="stylesheet" href="show.css" />
-
-  </head>
-
-  <body>
+<div class="text-success">
+  <%= flash[:notice] %>
+</div>
+<div class="text-danger">
+  <%= flash[:alret] %>
+</div>
     <p id="notice"></p>
 
 <p>
   <strong>Title:</strong>
-<p><%= @book.title %></p>
+<%= @book.title %>
 </p>
 
 <p>
   <strong>Body:</strong>
-<p><%= @book.body %></p>
+<%= @book.body %>
 </p>
 
-<a class="edit_77567" href="/books/77567/edit">Edit</a> |
+<%= link_to "Edit", edit_book_path(@book.id) %> |
 <a class="back" href="/books">Back</a>
 
-  </body>
-</html>

@@ -1,8 +1,54 @@
-<h1>投稿一覧</h1>
 
-<%= @books.each do |book| %>
+   <!-- 投稿一覧 -->
+<h1>Books</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
 
-  <p>タイトル</p>
-<span><%= book.title %></span>
-<span><%= book.bod %></span>
+  <tbody>
+    <% @books.each do |book| %>
+      <tr>
+        <td><%= book.title %></td>
+        <td><%= book.body %></td>
+        <td><%= link_to 'Show', book %></td>
+        <td><%= link_to "Edit", edit_book_path(book.id) %></td>
+        <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+  <head>
+    <title>WebCampBackendNew</title>
+
+  </head>
+
+   <!-- 投稿一覧 -->
+  <div class="box">
+    <% if @book.errors.any? %>
+  <%= @book.errors.count %>errors prohibited this book from being saved:
+  <ul>
+    <% @book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
 <% end %>
+    <!-- form_with部分 -->
+    <h2>New book</h2>
+  <%= form_with model: @book, url: '/books', method: :post do |f| %>
+      <div class="field">
+        <label for="book_title">Title</label><br>
+        <%= f.text_field :title %>
+    	</div>
+      <div class="field">
+        <label for="book_title">Body</label><br>
+          <%= f.text_area :body %>
+    	</div>
+  <%= f.submit 'Create Book' %>
+<% end %>
+</div>
